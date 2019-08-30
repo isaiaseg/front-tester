@@ -1,0 +1,17 @@
+{
+  "name": "front-tester",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bluebird": "^3.5.5",
+    "dotenv": "^8.1.0",
+    "prompts": "^2.2.1",
+    "puppeteer": "^1.19.0"
+  }
+}
