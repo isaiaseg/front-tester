@@ -1,5 +1,7 @@
 
 const Promise = require('bluebird');
+const { moving, stoped } = require('./rts_states');
+
 timeout = ms => { return new Promise(resolve => setTimeout(resolve, ms)); }
 
 const OPEN_SEND_FEEDBACK = async (page, scenario) => {
@@ -8,7 +10,8 @@ const OPEN_SEND_FEEDBACK = async (page, scenario) => {
         await page.click('input.finder');
         await page.waitForSelector('.side-tool-bar');
         await page.hover('.side-tool-bar');
-        await page.click('.side-tool-bar .buttons button:nth-child(6)');
+        await page.waitForSelector('.side-tool-bar .buttons div:nth-child(5) button');
+        await page.click('.side-tool-bar .buttons div:nth-child(5) button');
 
         await page.waitForSelector('mat-dialog-container iframe');
         const elementHandle = await page.$('mat-dialog-container iframe');
@@ -26,6 +29,13 @@ const OPEN_SEND_FEEDBACK = async (page, scenario) => {
     }
 }
 
+const RTS_STATE_CHANGES = async (page, scenario) => {
+    await page.waitForSelector('input.finder');
+    await page.goto(`${process.env.FLEETR_URL}home?fake_rts_start=${moving}&fake_rts_stop=${stoped}`);
+
+}
+
 module.exports = {
-    OPEN_SEND_FEEDBACK
+    OPEN_SEND_FEEDBACK,
+    RTS_STATE_CHANGES
 }

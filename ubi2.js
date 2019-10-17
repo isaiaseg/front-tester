@@ -1,5 +1,5 @@
 const prompts = require('prompts');
-const run = require('./fleetr/index');
+const run = require('./ubi2.0/index');
 (async () => {
     const questions = [
         {
@@ -7,8 +7,7 @@ const run = require('./fleetr/index');
             name: 'Fleetr',
             message: 'Selecciona un escenario: ',
             choices: [
-                { title: 'Abrir y enviar feedback', value: 'OPEN_SEND_FEEDBACK' },
-                { title: 'Cambio de estados en LiveView via RTS', value: 'RTS_STATE_CHANGES' }
+                { title: 'Login y lista de polizas', value: 'LOGIN_POLICIES' }
             ],
         }
     ];
