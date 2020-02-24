@@ -14,5 +14,9 @@
     "node-fetch": "^2.6.0",
     "prompts": "^2.2.1",
     "puppeteer": "^1.19.0"
+  },
+  "devDependencies": {
+    "express": "^4.17.1",
+    "yakbak": "^4.0.0"
   }
 }
